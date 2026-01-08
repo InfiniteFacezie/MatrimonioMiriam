@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette basata sul questionario e sull'invito [cite: 24, 31, 32] */
+  --color-salvia: #708271;    /* Il verde dell'invito [cite: 24] */
+  --color-mattone: #a65d47;   /* Colore accento per dettagli e IBAN [cite: 31] */
+  --color-bg-light: #f4f1ea;  /* Un avorio caldo effetto carta vintage */
+  
+  /* Font "Cool" estratti dallo stile dell'invito */
+  --font-script: "Great Vibes", cursive;    /* Per i nomi "Miriam & Claudio" [cite: 6] */
+  --font-ticket: "Special Elite", serif;    /* Effetto macchina da scrivere dell'invito  */
+  --font-body: "Inter", sans-serif;         /* Per i testi lunghi e leggibili  */
+}
+
+/* Base del documento con effetto texture */
+:root {
+  background-color: var(--color-bg-light);
+  color: #333;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  
+  /* Effetto grana vintage per far sembrare il sito un vero invito cartaceo */
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+}
+
+/* Titoli principali (Nomi) con stile calligrafico [cite: 6, 40] */
+h1 {
+  font-family: var(--font-script);
+  font-weight: 400;
+  @apply transition-all duration-700;
+}
+
+/* Titoli sezioni e dettagli stile "Ticket"  */
+h2, h3, .font-ticket {
+  font-family: var(--font-ticket);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Animazioni per l'Effetto WOW al caricamento */
+@keyframes reveal {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-reveal {
+  animation: reveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Utility per il layout "Mobile-Driven" immersivo */
+.section-card {
+  @apply bg-white shadow-[0_-20px_50px_rgba(0,0,0,0.05)] rounded-t-[50px] relative z-10;
+}
+
+/* Stile per i link e bottoni touch-friendly */
+a, button {
+  @apply active:scale-95 transition-transform duration-200;
+}
+
+/* Ottimizzazione per la selezione del testo (IBAN) [cite: 43] */
+::selection {
+  background-color: rgba(112, 130, 113, 0.2);
+  color: var(--color-salvia);
+}
+
+/* Nasconde la scrollbar ma permette lo scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
