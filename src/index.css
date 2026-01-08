@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette basata sul questionario e sull'invito [cite: 24, 31, 32] */
-  --color-salvia: #708271;    /* Il verde dell'invito [cite: 24] */
-  --color-mattone: #a65d47;   /* Colore accento per dettagli e IBAN [cite: 31] */
-  --color-bg-light: #f4f1ea;  /* Un avorio caldo effetto carta vintage */
+  /* Palette basata sul questionario e sull'invito */
+  --color-salvia: #708271;
+  --color-mattone: #a65d47;
+  --color-bg-light: #f4f1ea;
   
   /* Font "Cool" estratti dallo stile dell'invito */
-  --font-script: "Great Vibes", cursive;    /* Per i nomi "Miriam & Claudio" [cite: 6] */
-  --font-ticket: "Special Elite", serif;    /* Effetto macchina da scrivere dell'invito  */
-  --font-body: "Inter", sans-serif;         /* Per i testi lunghi e leggibili  */
+  --font-script: "Great Vibes", cursive;
+  --font-ticket: "Special Elite", serif;
+  --font-body: "Inter", sans-serif;
 }
 
 /* Base del documento con effetto texture */
@@ -23,28 +23,32 @@
   background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
 }
 
-/* Titoli principali (Nomi) con stile calligrafico [cite: 6, 40] */
+/* Nasconde il cursore di sistema su desktop per usare quello custom di Framer Motion */
+@media (min-width: 1024px) {
+  body, a, button { 
+    cursor: none !important; 
+  }
+}
+
+/* Titoli principali (Nomi) con stile calligrafico */
 h1 {
   font-family: var(--font-script);
   font-weight: 400;
-  @apply transition-all duration-700;
 }
 
-/* Titoli sezioni e dettagli stile "Ticket"  */
+/* Titoli sezioni e dettagli stile "Ticket" */
 h2, h3, .font-ticket {
   font-family: var(--font-ticket);
-  text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-/* Animazioni per l'Effetto WOW al caricamento */
-@keyframes reveal {
-  0% { transform: translateY(20px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-.animate-reveal {
-  animation: reveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+/* Effetto Glassmorphism per la sezione Viaggio */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Utility per il layout "Mobile-Driven" immersivo */
@@ -54,20 +58,25 @@ h2, h3, .font-ticket {
 
 /* Stile per i link e bottoni touch-friendly */
 a, button {
-  @apply active:scale-95 transition-transform duration-200;
+  @apply active:scale-95 transition-transform duration-200 outline-none;
 }
 
-/* Ottimizzazione per la selezione del testo (IBAN) [cite: 43] */
+/* Ottimizzazione per la selezione del testo (IBAN) */
 ::selection {
-  background-color: rgba(112, 130, 113, 0.2);
-  color: var(--color-salvia);
+  background-color: rgba(112, 130, 113, 0.4);
+  color: white;
 }
 
-/* Nasconde la scrollbar ma permette lo scroll */
+/* Nasconde la scrollbar per la gallery senza bloccare lo scroll */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Supporto per clip-path (firma animata) su browser meno recenti */
+.font-script {
+  will-change: clip-path;
 }
