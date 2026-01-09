@@ -109,32 +109,42 @@ function App() {
           </div>
         </section>
 
-        {/* LOGISTICA - MAPPE REALI */}
-        <section className="bg-white py-20 px-6">
-          <div className="max-w-md mx-auto border-2 border-dashed border-salvia/30 rounded-[40px] bg-salvia/5 p-2 shadow-sm">
-            <div className="bg-white rounded-[35px] p-8 text-center border border-salvia/10 relative overflow-hidden">
-               <h3 className="font-ticket text-xl text-salvia mb-6 font-bold uppercase tracking-widest">Dove & Quando</h3>
-               <div className="space-y-8 relative z-10">
-                  <div>
-                    <p className="font-ticket text-mattone font-bold text-lg">ORE 11:00</p>
-                    <p className="font-ticket text-sm text-gray-600 mb-3 italic">Chiesa di San Sebastiano, Cremona</p>
-                    <a href="https://maps.app.goo.gl/9uG5m6D7vS7vS7vS7" target="_blank" rel="noreferrer"
-                      className="inline-flex items-center gap-2 bg-salvia/10 text-salvia px-6 py-2 rounded-full font-ticket text-[10px] font-bold uppercase hover:bg-salvia hover:text-white transition-all">
-                      <MapPin size={12} /> Naviga alla Chiesa
-                    </a>
-                  </div>
-                  <div className="border-t border-dashed border-salvia/20 pt-8">
-                    <p className="font-ticket text-mattone font-bold uppercase">A Seguire</p>
-                    <p className="font-ticket text-sm text-gray-600 mb-3 italic">Villa Corti, Pieranica (CR)</p>
-                    <a href="https://maps.app.goo.gl/LZrJrDU3gUcRsxTJ9" target="_blank" rel="noreferrer"
-                      className="inline-flex items-center gap-2 bg-salvia/10 text-salvia px-6 py-2 rounded-full font-ticket text-[10px] font-bold uppercase hover:bg-salvia hover:text-white transition-all">
-                      <MapPin size={12} /> Raggiungi la Villa
-                    </a>
-                  </div>
-               </div>
-            </div>
+        {/* LOGISTICA - MAPPE REALI DEFINITIVE */}
+<section className="bg-white py-20 px-6">
+  <div className="max-w-md mx-auto border-2 border-dashed border-salvia/30 rounded-[40px] bg-salvia/5 p-2 shadow-sm">
+    <div className="bg-white rounded-[35px] p-8 text-center border border-salvia/10 relative overflow-hidden">
+       <h3 className="font-ticket text-xl text-salvia mb-6 font-bold uppercase tracking-widest">Dove & Quando</h3>
+       <div className="space-y-8 relative z-10">
+          <div>
+            <p className="font-ticket text-mattone font-bold text-lg">ORE 11:00</p>
+            <p className="font-ticket text-sm text-gray-600 mb-3 italic">Chiesa di San Sebastiano, Cremona</p>
+            {/* LINK CHIESA: Formato universale di ricerca */}
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Chiesa+di+San+Sebastiano+Cremona" 
+              target="_blank" 
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-salvia/10 text-salvia px-6 py-2 rounded-full font-ticket text-[10px] font-bold uppercase hover:bg-salvia hover:text-white transition-all"
+            >
+              <MapPin size={12} /> Come raggiungere la Chiesa
+            </a>
           </div>
-        </section>
+          <div className="border-t border-dashed border-salvia/20 pt-8">
+            <p className="font-ticket text-mattone font-bold uppercase">A Seguire</p>
+            <p className="font-ticket text-sm text-gray-600 mb-3 italic">Villa Corti, Pieranica (CR)</p>
+            {/* LINK VILLA: Formato universale di ricerca */}
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Villa+Corti+Pieranica" 
+              target="_blank" 
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-salvia/10 text-salvia px-6 py-2 rounded-full font-ticket text-[10px] font-bold uppercase hover:bg-salvia hover:text-white transition-all"
+            >
+              <MapPin size={12} /> Come raggiungere la Villa
+            </a>
+          </div>
+       </div>
+    </div>
+  </div>
+</section>
 
         {/* GALLERY "NOI & VOI" MIGLIORATA */}
         <section className="bg-white py-16 overflow-hidden">
