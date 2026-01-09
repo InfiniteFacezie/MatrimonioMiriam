@@ -23,12 +23,7 @@
   background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
 }
 
-/* Nasconde il cursore di sistema su desktop per usare quello custom di Framer Motion */
-@media (min-width: 1024px) {
-  body, a, button { 
-    cursor: none !important; 
-  }
-}
+
 
 /* Titoli principali (Nomi) con stile calligrafico */
 h1 {
