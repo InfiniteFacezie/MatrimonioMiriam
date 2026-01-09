@@ -204,7 +204,7 @@ function App() {
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] w-full px-8 max-w-sm text-center">
         <motion.a 
           whileTap={{ scale: 0.95 }} 
-          href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform" 
+          href="https://forms.gle/BMBUYA4Mz1yHubes6" 
           target="_blank" 
           className="bg-salvia text-white flex items-center justify-center gap-4 py-5 rounded-full shadow-2xl font-ticket text-xs font-bold uppercase tracking-[0.2em]"
         >
